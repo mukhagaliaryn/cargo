@@ -4,74 +4,90 @@
 {% block title %}{% translate "Главная" %}{% endblock title %}
 
 {% block content %}
+<!-- Offer -->
 <div class="bg-white">
     <div>
         <div class="swiper offerSwiper">
             <div class="swiper-wrapper">
+                {% for offer in offers %}
                 <div class="swiper-slide">
-                    <div 
-                        style="background-image: url('/static/images/offer-1.jpg');"
-                        class="h-[520px] no-repeat bg-cover bg-center"
-                    >
+                    <div style="background-image: url('{{ offer.poster.url }}');"
+                        class="h-[520px] no-repeat bg-cover bg-center">
                         <div class="flex justify-center items-center bg-black bg-opacity-50 w-full h-full">
                             <div class="max-w-screen-xl text-center">
-                                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
-                                <p class="mb-6 text-lg font-normal text-gray-200 lg:text-xl sm:px-16 xl:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-                                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300">
-                                    Learn more
-                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                </svg>
+                                <h1
+                                    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
+                                    {{ offer.title }}
+                                </h1>
+                                <p class="mb-6 text-lg font-normal text-gray-200 lg:text-xl sm:px-16 xl:px-48">
+                                    {{ offer.about }}
+                                </p>
+                                <a href="#logistic"
+                                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300">
+                                    {% translate "Начинать сейчас" %}
+                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="swiper-slide">
-                    <div 
-                        style="background-image: url('/static/images/offer-2.jpg');"
-                        class="h-[520px] no-repeat bg-cover bg-center"
-                    >
-                        <div class="flex justify-center items-center bg-black bg-opacity-50 w-full h-full">
-                            <div class="max-w-screen-xl text-center">
-                                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
-                                <p class="mb-6 text-lg font-normal text-gray-200 lg:text-xl sm:px-16 xl:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-                                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300">
-                                    Learn more
-                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div 
-                        style="background-image: url('/static/images/offer-3.jpg');"
-                        class="h-[520px] no-repeat bg-cover bg-center"
-                    >
-                        <div class="flex justify-center items-center bg-black bg-opacity-50 w-full h-full">
-                            <div class="max-w-screen-xl text-center">
-                                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
-                                <p class="mb-6 text-lg font-normal text-gray-200 lg:text-xl sm:px-16 xl:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-                                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300">
-                                    Learn more
-                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+                {% endfor %}
             </div>
         </div>
+    </div>
+</div>
 
+
+<!-- Why choes -->
+<div class="border-b">
+    <div class="max-w-screen-xl mx-auto p-4 md:py-10">
+        <div class="mb-10">
+            <h1 class="text-2xl font-semibold text-center mb-2">{% translate "Почему стоит выбрать нас" %}</h1>
+        </div>
+
+
+        <div class="grid gap-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+
+            <div class="block bg-green-600 p-6 rounded-lg shadow text-center">
+                <div class="text-white text-4xl mb-2">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
+                    {% translate "Проверенный опыт" %}
+                </h5>
+                <p class="text-gray-200">
+                    {% translate "Благодаря проверенному послужному списку мы успешно поддерживаем бизнес во всех отраслях universe, предлагая надежные логистические решения." %}
+                </p>
+            </div>
+
+            <div class="block bg-green-600 p-6 rounded-lg shadow text-center">
+                <div class="text-white text-4xl mb-2">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
+                    {% translate "Устойчивое развитие" %}
+                </h5>
+                <p class="text-gray-200">
+                    {% translate "Мы уделяем приоритетное внимание экологичным практикам, способствуя более экологичному будущему и ответственно удовлетворяя ваши потребности в логистике." %}
+                </p>
+            </div>
+
+            <div class="block bg-green-600 p-6 rounded-lg shadow text-center">
+                <div class="text-white text-4xl mb-2">
+                    <i class="fa-solid fa-arrow-down-up-lock"></i>
+                </div>
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
+                    {% translate "Прозрачные операции" %}
+                </h5>
+                <p class="text-gray-200">
+                    {% translate "Благодаря проверенному послужному списку мы успешно поддерживаем бизнес во всех отраслях universe, предлагая надежные логистические решения." %}
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -81,38 +97,41 @@
     <div class="max-w-screen-xl mx-auto p-4 md:py-10">
         <div class="mb-10">
             <h1 class="text-2xl font-semibold text-center mb-2">{% translate "Основные деятельности" %}</h1>
-            <span class="block max-w-md text-center mx-auto text-sm text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ipsa pariatur consequuntur rem a totam ducimus soluta qui veniam repellat.
+            <span class="block max-w-xl text-center mx-auto text-sm text-gray-700">
+                {% translate "Наши основные направления включают в себя широкий спектр логистических решений, разработанных специально для оптимизации вашей цепочки поставок и продвижения вашего бизнеса вперед." %}
             </span>
         </div>
-    
+
         <div class="swiper mySwiper relative">
-            
+
             <div class="swiper-wrapper">
                 {% for business in businesses %}
-                    <div class="swiper-slide">
-                        <a href="#" class="block bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-                            <div class="overflow-hidden h-44">
-                                <img class="rounded-t-lg" src="{{ business.poster.url }}" alt="" />
+                <div class="swiper-slide">
+                    <a href="{% url 'business' business.pk %}"
+                        class="block bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                        <div class="overflow-hidden h-44">
+                            <img class="rounded-t-lg" src="{{ business.poster.url }}" alt="" />
+                        </div>
+                        <div class="p-5">
+                            <div>
+                                <h5 class="mb-2 text-xl line-clamp-1 font-semibold tracking-tight text-gray-900">
+                                    {{ business.title }}
+                                </h5>
                             </div>
-                            <div class="p-5">
-                                <div>
-                                    <h5 class="mb-2 text-xl line-clamp-1 font-semibold tracking-tight text-gray-900">
-                                        {{ business.title }}
-                                    </h5>
-                                </div>
-                                <p class="mb-3 text-sm text-gray-700 line-clamp-2">
-                                    {{ business.about }}
-                                </p>
-                                <div class="inline-flex items-center font-medium text-green-600 hover:underline">
-                                    {% translate "Подробнее" %}
-                                    <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                    </svg>
-                                </div>
+                            <p class="mb-3 text-sm text-gray-700 line-clamp-2">
+                                {{ business.about }}
+                            </p>
+                            <div class="inline-flex items-center font-medium text-green-600 hover:underline">
+                                {% translate "Подробнее" %}
+                                <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                </svg>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
+                </div>
                 {% endfor %}
             </div>
 
@@ -131,29 +150,49 @@
             <h1 class="text-2xl font-semibold text-center mb-2">{% translate "О нас" %}</h1>
         </div>
         <div class="grid gap-10 grid-cols-1 lg:grid-cols-2">
-            <div class="max-w-xl mx-auto">
-                <div class="my-5">
-                    <h4 class="font-semibold text-green-700 text-center lg:text-left mb-2">{% translate "Международная транспортно-экспедиторская компания Иу Херун, Лтд." %}</h4>
-                    <span class="block text-sm text-center lg:text-left text-gray-700">
-                        {% translate "Штаб-квартира Yiwu Herun International Freight Forwarding Co., Ltd. (далее именуемая 'Херун Интернэшнл') находится в Иу.Основными секторами бизнеса являются Китайско-российская международная логистика, Китайско-Казахстанская международная логистика и дистрибуция по всей России.Мы упорно работаем над созданием идеальной логистической цепочки поставок для китайско-российской международной торговли, и мы полностью привержены созданию профессиональных логистических решений для наших клиентов.Включая бронирование, укладку, выставление счетов, экспортную таможенную декларацию, таможенное оформление импорта, доставку от двери до двери, складирование, доставку, страхование и многие другие логистические услуги." %}
-                    </span>
-                    <span class="hidden xl:block mt-2 text-sm text-center lg:text-left text-gray-700">
-                        {% translate "Компания Herun International Logistics располагает складами и офисами в Гуанчжоу, Линьи, Алматы, Москве и других городах Китая и установила партнерские отношения с более чем 100 зарубежными агентами. Это одна из самых быстрорастущих компаний в сфере международных грузоперевозок в Иу.Herun International Logistics всегда придерживалась принципа предоставления клиентам безопасного, быстрого и высококачественного обслуживания в качестве основной культуры предприятия, создавая первоклассную элитную команду по обслуживанию международных перевозок и постоянно оптимизируя сервисные продукты компании, чтобы предоставлять нашим клиентам внутри страны и за рубежом лучшие услуги..." %}
-                    </span>
-                    
-                </div>
-                
-    
-                <a href="#" class="inline-flex items-center font-medium text-green-600 dark:text-green-500 hover:underline">
-                    Read their stories
-                    <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-    
             <div>
                 <img src="{% static 'images/about.png' %}" class="w-[640px] mx-auto rounded-lg" alt="">
+            </div>
+
+            <div class="max-w-xl mx-auto">
+                <div class="mb-5">
+                    <h4 class="font-semibold text-green-600 text-center lg:text-left mb-2">{% translate "Международная транспортно-экспедиторская компания Иу Херун, Лтд." %}</h4>
+                    <span class="block text-sm text-center lg:text-left text-gray-700">
+                        {% blocktranslate %}
+                            Штаб-квартира Yiwu Herun International Freight Forwarding Co., Ltd. (далееименуемая 'Херун Интернэшнл') находится в Иу.Основными секторами бизнеса являются
+                            Китайско-российская международная логистика, Китайско-Казахстанская международная логистика и
+                            дистрибуция по всей России.Мы упорно работаем над созданием идеальной логистической цепочки
+                            поставок для китайско-российской международной торговли, и мы полностью привержены созданию
+                            профессиональных логистических решений для наших клиентов.Включая бронирование, укладку,
+                            выставление счетов, экспортную таможенную декларацию, таможенное оформление импорта, доставку от
+                            двери до двери, складирование, доставку, страхование и многие другие логистические услуги.
+                        {% endblocktranslate %}
+                    </span>
+                    <span class="hidden xl:block mt-2 text-sm text-center lg:text-left text-gray-700">
+                        {% blocktranslate %}
+                            Компания Herun International Logistics располагает складами и офисами в Гуанчжоу,
+                            Линьи, Алматы, Москве и других городах Китая и установила партнерские отношения с более чем 100
+                            зарубежными агентами. Это одна из самых быстрорастущих компаний в сфере международных
+                            грузоперевозок в Иу.Herun International Logistics всегда придерживалась принципа предоставления
+                            клиентам безопасного, быстрого и высококачественного обслуживания в качестве основной культуры
+                            предприятия, создавая первоклассную элитную команду по обслуживанию международных перевозок и
+                            постоянно оптимизируя сервисные продукты компании, чтобы предоставлять нашим клиентам внутри
+                            страны и за рубежом лучшие услуги...
+                        {% endblocktranslate %}
+                    </span>
+
+                </div>
+
+
+                <a href="{% url 'about' %}"
+                    class="inline-flex items-center font-medium text-green-600 dark:text-green-500 hover:underline">
+                    {% translate "Подробнее" %}
+                    <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -161,83 +200,35 @@
 
 
 <!-- Logistics -->
-<div class="bg-white border-b">
+<div class="bg-white border-b" id="logistic">
     <div class="max-w-screen-xl mx-auto p-4 md:py-10">
         <div class="mb-10">
             <h1 class="text-2xl font-semibold text-center mb-2">{% translate "Международная логистика" %}</h1>
-            <span class="block max-w-md text-center mx-auto text-sm text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ipsa pariatur consequuntur rem a totam ducimus soluta qui veniam repellat.
+            <span class="block max-w-xl text-center mx-auto text-sm text-gray-700">
+                {% translate "Ощутите уверенность, которая приходит с преданным партнером, стремящимся к успеху вашей глобальной цепочки поставок." %}
             </span>
         </div>
 
 
         <div class="swiper logistics">
             <div class="swiper-wrapper">
+                {% for log in logistics %}
                 <div class="swiper-slide">
-                    <a href="#"
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800">
-            
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
-                            2021</h5>
-                        <p class="font-normal text-sm text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of
-                            2021 so far, in reverse chronological order.</p>
-                    </a>
-                </div>
+                    <a href="{% url 'logistic' log.pk %}"
+                        class="block p-6 text-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800">
 
-                <div class="swiper-slide">
-                    <a href="#"
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
-                            2021</h5>
-                        <p class="font-normal text-sm text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of
-                            2021 so far, in reverse chronological order.</p>
+                        <div class="h-[40px]">
+                            <img src="{{ log.poster.url }}" class="w-10 mx-auto" alt="">
+                        </div>
+                        <h5 class="mb-2 text-xl line-clamp-1 font-bold tracking-tight text-gray-900 dark:text-white">
+                            {{ log.title }}
+                        </h5>
+                        <p class="font-normal text-sm text-gray-700 dark:text-gray-400 line-clamp-3">
+                            {{ log.about }}
+                        </p>
                     </a>
                 </div>
-
-                <div class="swiper-slide">
-                    <a href="#"
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
-                            2021</h5>
-                        <p class="font-normal text-sm text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of
-                            2021 so far, in reverse chronological order.</p>
-                    </a>
-                </div>
-
-                <div class="swiper-slide">
-                    <a href="#"
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
-                            2021</h5>
-                        <p class="font-normal text-sm text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of
-                            2021 so far, in reverse chronological order.</p>
-                    </a>
-                </div>
-
-                <div class="swiper-slide">
-                    <a href="#"
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
-                            2021</h5>
-                        <p class="font-normal text-sm text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of
-                            2021 so far, in reverse chronological order.</p>
-                    </a>
-                </div>
-
-                <div class="swiper-slide">
-                    <a href="#"
-                        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions
-                            2021</h5>
-                        <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of
-                            2021 so far, in reverse chronological order.</p>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
 
             <div class="swiper-pagination"></div>
@@ -248,60 +239,296 @@
 </div>
 
 
-<div>
+<!-- Plan or online calc -->
+<div class="border-b">
+    <div class="max-w-screen-xl mx-auto p-4 md:py-10">
+        <div class="mb-10">
+            <h1 class="text-2xl font-semibold text-center mb-2">{% translate "Оценка времени и цены" %}</h1>
+            <span class="block max-w-xl text-center mx-auto text-sm text-gray-700">
+                {% translate "Выберите логистическое решение, которое вас интересует." %}
+            </span>
+        </div>
+
+        <div class="swiper solutions">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div
+                        class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{% translate "Базовый" %}
+                        </h5>
+                        <div class="flex items-baseline text-gray-900 dark:text-white">
+                            <span class="text-5xl font-extrabold tracking-tight">99 999</span>
+                            <span class="text-3xl font-semibold">{% translate "ТГ" %}</span>
+                        </div>
+                        <ul role="list" class="space-y-5 my-7">
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">
+                                    {% translate "Вес до 1 000кг" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Объем до 50 м3" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Количество до 10шт" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Путь до 100км" %}</span>
+                            </li>
+                        </ul>
+                        <button type="button"
+                            class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+                            {% translate "Выбрать" %}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Standart -->
+                <div class="swiper-slide">
+                    <div
+                        class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{% translate "Стандарт" %}
+                        </h5>
+                        <div class="flex items-baseline text-gray-900 dark:text-white">
+                            <span class="text-5xl font-extrabold tracking-tight">299 999</span>
+                            <span class="text-3xl font-semibold">{% translate "ТГ" %}</span>
+                        </div>
+                        <ul role="list" class="space-y-5 my-7">
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Вес до 5 000кг" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Объем до 100 м3" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Количество до 50шт" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Путь до 500км" %}</span>
+                            </li>
+                        </ul>
+                        <button type="button"
+                            class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+                            {% translate "Выбрать" %}
+                        </button>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div
+                        class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{% translate "Бизнес" %}
+                        </h5>
+                        <div class="flex items-baseline text-gray-900 dark:text-white">
+                            <span class="text-5xl font-extrabold tracking-tight">599 999</span>
+                            <span class="text-3xl font-semibold">{% translate "ТГ" %}</span>
+                        </div>
+                        <ul role="list" class="space-y-5 my-7">
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Вес до 10 000кг" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Объем до 200 м3" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Количество до 100шт" %}</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                </svg>
+                                <span
+                                    class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{% translate "Путь до 1000км" %}</span>
+                            </li>
+                        </ul>
+                        <button type="button"
+                            class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+                            {% translate "Выбрать" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next absolute top-26"></div>
+            <div class="swiper-button-prev absolute top-26"></div>
+        </div>
+
+        <div class="text-center mt-10">
+            <span>{% translate "Или" %} </span>
+            <a href="" class="inline-flex items-center font-medium text-green-600 hover:underline">{% translate "онлайн калькулятор"%}</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Contact us -->
+<div class="bg-white border-b">
     <div class="max-w-screen-xl mx-auto p-4 md:py-10">
         <div class="mb-10">
             <h1 class="text-2xl font-semibold text-center mb-2">{% translate "Связоваться с нами" %}</h1>
-            <span class="block max-w-md text-center mx-auto text-sm text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ipsa pariatur consequuntur rem a totam ducimus soluta qui veniam repellat.
+            <span class="block max-w-xl text-center mx-auto text-sm text-gray-700">
+                {% translate "Свяжитесь с нами сегодня, чтобы обсудить, как наши международные логистические решения могут быть адаптированы к вашим конкретным бизнес-требованиям." %}
             </span>
         </div>
 
         <form class="max-w-xl mx-auto" id="contact">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
-                        name</label>
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        {% translate "Имя" %}
+                    </label>
                     <input type="text" id="first_name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="John" required>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="{% translate 'Джон' %}" required>
                 </div>
                 <div>
-                    <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
-                        name</label>
+                    <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        {% translate "Фамилия" %}
+                    </label>
                     <input type="text" id="last_name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Doe" required>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="{% translate 'Доу' %}" required>
                 </div>
             </div>
             <div class="mb-6">
-                <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
-                <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    {% translate "Телефон" %}
+                </label>
+                <input type="tel" id="phone"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
             </div>
             <div class="mb-6">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    {% translate "Email почта" %}
+                </label>
                 <input type="email" id="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="john.doe@company.com" required>
             </div>
             <div class="mb-6">
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    {% translate 'Сообщение' %}
+                </label>
+                <textarea id="message" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500"
+                    placeholder="{% translate 'Напишите свои мысли здесь...' %}"></textarea>
             </div>
-            <div class="flex items-start mb-6">
-                <div class="flex items-center h-5">
-                    <input id="remember" type="checkbox" value=""
-                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                        required>
-                </div>
-                <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a
-                        href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
-            </div>
+
             <button type="submit"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                {% translate "Отправить" %}
+            </button>
         </form>
 
     </div>
 </div>
 
+
+<!-- Address -->
+<div id="location">
+    <div class="max-w-screen-xl mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 p-4 md:py-10">
+        <div style="position:relative;overflow:hidden;"><a
+                href="https://yandex.ru/maps/109373/yiwu/?utm_medium=mapframe&utm_source=maps"
+                style="color:#eee;font-size:12px;position:absolute;top:0px;">Иу</a><a
+                href="https://yandex.ru/maps/109373/yiwu/?ll=120.085611%2C29.322231&utm_medium=mapframe&utm_source=maps&z=12"
+                style="color:#eee;font-size:12px;position:absolute;top:14px;">Иу — Яндекс Карты</a><iframe
+                src="https://yandex.ru/map-widget/v1/?ll=120.085611%2C29.322231&z=12" width="100%" height="420px"
+                frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+
+        <div class="">
+            <div class="mb-5 border-b">
+                <h1 class="text-2xl font-semibold mb-2">{% translate "Наши данные и местоположение" %}</h1>
+            </div>
+
+            <ul class="text-gray-500">
+                <li class="mb-5">
+                    <i class="fa-solid fa-phone text-xl"></i>
+                    <a href="" class="text-sm hover:underline ml-2">15957930974</a>
+                </li>
+                <li class="mb-5">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <a href="" class="text-sm hover:underline ml-2">+8615088287758</a>
+                </li>
+                <li class="mb-5">
+                    <i class="fa-brands fa-weixin text-xl"></i>
+                    <a href="" class="text-sm hover:underline ml-2">+8615088287758</a>
+                </li>
+                <li class="mb-5">
+                    <img src="{% static 'images/qr.jpg' %}" class="w-52" alt="">
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
 {% endblock content %}
