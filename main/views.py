@@ -58,6 +58,7 @@ def about_org(request):
     }
     return render(request, 'main/about/org.html', context)
 
+
 def business_detail(request, pk):
     business = get_object_or_404(Business, pk=pk)
 
